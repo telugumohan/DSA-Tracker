@@ -2,6 +2,9 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import bodyParser from "body-parser";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 // Import your routes
 import problemRouter from "./routes/problemRoute.js";
@@ -19,10 +22,10 @@ app.use('/api/problems', problemRouter);
 
 // Config
 const PORT = process.env.PORT || 5000;
-const MONGODB_URL = `mongodb+srv://root:root@mydevelopment.rvw5y.mongodb.net/?retryWrites=true&w=majority&appName=MyDevelopment`;
+
 
 // Connect to MongoDB and start server
-mongoose.connect(MONGODB_URL)
+mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log('App connected to DB.');
     app.listen(PORT, () => console.log(`App is listening to PORT: ${PORT}`));
