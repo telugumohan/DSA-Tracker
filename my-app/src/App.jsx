@@ -68,7 +68,7 @@ export default function App() {
   const [openDifficulty, setOpenDifficulty] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/problems")
+    fetch("https://dsa-tracker-told.onrender.com/api/problems")
       .then(res => res.json())
       .then(data => {
         const grouped = {};
