@@ -7,7 +7,4 @@ export default defineConfig({
     tailwindcss(),
     react()
   ],
-  build: {
-    outDir: '../server/public', // important for Express to serve static files
-  },
 });
